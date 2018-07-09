@@ -1,0 +1,32 @@
+<h1>Create A New Listing!</h1>
+
+<%= form_for @listing do |f| %>
+  <%= f.label :address_line_1 %>
+  <%= f.text_field :address_line_1 %>
+  <br>
+  <%= f.label :address_line_2 %>
+  <%= f.text_field :address_line_2 %>
+  <br>
+  <%= f.label :city %>
+  <%= f.text_field :city %>
+   <br>
+  <%= f.label :state %>
+  <%= f.text_field :state %>
+  <br>
+  <%= f.label :zipcode %>
+  <%= f.text_field :zipcode %>
+  <br>
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+  <br>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <br>
+  <%= f.label :availability %>
+  <%= f.text_field :availability %>
+  <br>
+  <%= f.label :realtor_id, "Realtor" %>
+  <%= f. :realtor_id %>
+  <%= f.submit %>
+
+<% end %>
