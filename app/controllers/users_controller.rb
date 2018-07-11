@@ -20,6 +20,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    #code
+  end
+
   def edit
 
   end

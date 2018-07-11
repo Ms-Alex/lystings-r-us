@@ -1,6 +1,6 @@
 <h1>Leave A New Review!</h1>
 
-<%= form_for [@listing, @review], url: "/listings/#{@listing.id}" do |f| %>
+<%= form_for [@listing, @review] do |f| %>
 
   <%= f.label :cleanlines, "Clealiness Rating:" %>
   <%= f.number_field :cleanlines, within: 1..5 %>

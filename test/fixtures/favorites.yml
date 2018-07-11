@@ -2,6 +2,10 @@
 
 one:
   user: one
+  favorited: one
+  favorited_type: Favorited
 
 two:
   user: two
+  favorited: two
+  favorited_type: Favorited

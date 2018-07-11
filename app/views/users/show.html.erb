@@ -13,7 +13,23 @@ Email: <h3><%= @user.email %></h3>
 Firm: <h3><%= @user.firm %></h3>
 <% end %>
 
-<% @user.favorites.each do |favorite| %>
-  <%= favorite.address_s %>
-  <br>
+
+<% if @user.realtor %>
+<hr>
+  <h3>My Listings:</h3>
+  <% @user.realtor_listings.each do |listing| %>
+    <div>
+      <%= link_to listing.address_s, listing %>
+    </div>
+  <% end %>
+<% end %>
+
+<% if !@user.realtor %>
+<hr>
+  <h3>My Favorites:</h3>
+  <% @user.regular_favorites.each do |favorite| %>
+    <div>
+      <%= link_to favorite.favorited.address_s, favorite.favorited %>
+    </div>
+  <% end %>
 <% end %>

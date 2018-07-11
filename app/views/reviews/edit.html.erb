@@ -1,6 +1,22 @@
-<h1>Edit Review!</h1>
+<h1>Update Your Review:</h1>
 
-<%= form_for @review do |f| %>
+<%= form_for [@listing, @review] do |f| %>
+
+  <%= f.label :cleanlines, "Clealiness Rating:" %>
+  <%= f.number_field :cleanlines, within: 1..5 %>
+  <br>
+  <%= f.label :location, "Location Rating:" %>
+  <%= f.number_field :location, within: 1..5 %>
+  <br>
+  <%= f.label :communication, "Communication Rating:" %>
+  <%= f.number_field :communication, within: 1..5 %>
+  <br>
+  <%= f.label :value, "Value Rating:" %>
+  <%= f.number_field :value, within: 1..5 %>
+  <br>
+  <%= f.label :noise_level, "Noise Level Comment:" %>
+  <%= f.text_field :noise_level %>
+  <br>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br>

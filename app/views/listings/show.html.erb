@@ -7,24 +7,59 @@
   <br>
 <% end %>
 
+<h3>Overall Rating of <%= @listing.listing_avg_rating %> / 5.0!</h3>
+
+<% if !current_user.realtor %>
+
+<% unless current_user.favorite_listings.exists?(id: @listing.id) %>
+<%= button_to 'Add to favorites', favorite_listings_path(listing_id: @listing), method: :post %>
+<% else %>
+<%= button_to 'Remove from favorites', favorite_listing_path(@listing), method: :delete %>
+<% end %>
+
+<% end %>
+
+
+
 
 <h3>Realtor:</h3>
 <%= link_to @listing.user.user_s, user_path(@listing.user) %>
+
 <h3>Price: </h3>$<%= @listing.price %><br>
 <h3>Description: </h3><%= @listing.description %><br><br>
 <h3>Availability: </h3><%= @listing.availability %>
 
+
 <h2>Reviews:</h2>
 <% if !current_user.realtor %>
 <%= link_to "Add A Review", new_listing_review_path(@listing) %>
-<br>
+<br><br>
 <% end %>
 
+<ul>
 <% @listing.reviews.each do |review| %>
-  <%= review.user.first_name %>  |  <%= link_to "Edit", edit_listing_review_path(review) %> <br>
+  <li>
+    Overall: <%= review.review_avg_rating %>/5.0 |
+  <%= review.user.first_name %>  wrote: <br>
   <%= review.title %><br>
+
+  <table>
+    <tr>
+      <td>Cleanliness: <%= review.cleanlines %></td>
+      <td>Communication: <%= review.communication %></td>
+    </tr>
+    <br>
+    <tr>
+      <td>Location: <%= review.location %></td>
+      <td>Value: <%= review.value %></td>
+    </tr>
+  </table>
+
+  <br>
   <%= review.content %><br>
   <%= review.published_at %><br>
+</li>
+
 <% end %>
 
-<%= button_to 'Add To Favorites', new_favorite_path, method: :post, params: { @listing.id } %>
+</ul>
