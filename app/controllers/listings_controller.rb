@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+  helper_method :fetch_review_listing
   before_action :require_user
   before_action :fetch_listing, only: [:edit, :show, :update, :destroy]
   before_action :require_realtor, only: [:new, :create, :edit, :update, :destroy]
@@ -39,7 +40,7 @@ class ListingsController < ApplicationController
         redirect_to @listing
       else
         render :edit
-      end   
+      end
   end
 
   def destroy
@@ -47,8 +48,13 @@ class ListingsController < ApplicationController
   end
 
   private
+  # def fetch_review_listing
+  #   #code
+  #   byebug
+  #   @review_listing = Listing.find(params[:listing_id])
+  # end
+
   def fetch_listing
-    #code
     @listing = Listing.find(params[:id])
   end
 

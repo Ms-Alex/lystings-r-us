@@ -3,16 +3,15 @@ class ReviewsController < ApplicationController
   before_action :fetch_review, only: [:edit, :update]
 
   def new
-
     @listing = Listing.find(params[:listing_id])
-
     @user = current_user
     @review = Review.new
   end
 
   def create
+    byebug
     @review = Review.new(review_params)
-    @review.user = @user
+    @review.user = current_user
     @review.listing = @listing
     if @review.save
       @listing.reviews << @review

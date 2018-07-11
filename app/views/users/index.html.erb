@@ -1,7 +1,7 @@
 <h1>Welcome!</h1>
 
-<%= link_to "Profile Page", user_path(@user) %> |
-<!-- link to MESSAGES -->
+<%= link_to "Profile Page", user_path(@user) %> | <%=  link_to "Messages", conversations_path %>
+
 <hr>
 
 <% Listing.all.each do |listing| %>

@@ -1,0 +1,10 @@
+<h1>All Conversations</h1>
+<%= link_to "Create a new Message", new_conversation_path %>
+<hr>
+
+<% @conversations.each do |conversation| %>
+    <div>
+        <%= link_to conversation.subject, conversation_path(conversation) %>
+    </div>
+
+<% end %>

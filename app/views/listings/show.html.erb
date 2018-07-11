@@ -21,8 +21,10 @@
 <% end %>
 
 <% @listing.reviews.each do |review| %>
-  <%= review.user.user_s %>  |  <%= link_to "Edit", edit_listing_review_path(review) %> <br>
+  <%= review.user.first_name %>  |  <%= link_to "Edit", edit_listing_review_path(review) %> <br>
   <%= review.title %><br>
   <%= review.content %><br>
   <%= review.published_at %><br>
 <% end %>
+
+<%= button_to 'Add To Favorites', new_favorite_path, method: :post, params: { @listing.id } %>
