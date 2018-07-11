@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2018_07_09_202228) do
   end
 
   create_table "listings", force: :cascade do |t|
-    t.integer "realtor_id"
+    t.integer "user_id"
     t.string "address_line_1"
     t.string "address_line_2"
     t.string "city"
@@ -31,19 +31,7 @@ ActiveRecord::Schema.define(version: 2018_07_09_202228) do
     t.string "availability"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["realtor_id"], name: "index_listings_on_realtor_id"
-  end
-
-  create_table "realtors", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "username"
-    t.string "password"
-    t.string "firm"
-    t.string "email"
-    t.string "phone_number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -56,6 +44,7 @@ ActiveRecord::Schema.define(version: 2018_07_09_202228) do
     t.integer "cleanlines"
     t.integer "communication"
     t.integer "value"
+    t.datetime "published_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["listing_id"], name: "index_reviews_on_listing_id"
@@ -65,8 +54,11 @@ ActiveRecord::Schema.define(version: 2018_07_09_202228) do
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "username"
-    t.string "password"
+    t.string "email"
+    t.string "password_digest"
+    t.string "phone_number"
+    t.string "firm"
+    t.boolean "realtor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

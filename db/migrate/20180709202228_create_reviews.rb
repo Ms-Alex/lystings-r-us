@@ -10,6 +10,7 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.integer :cleanlines
       t.integer :communication
       t.integer :value
+      t.datetime :published_at
 
       t.timestamps
     end

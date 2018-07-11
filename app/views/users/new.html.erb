@@ -1,0 +1,26 @@
+
+
+<!-- radio_button_tag 'receive_updates', 'no', true -->
+
+<h1>Sign Up!</h1>
+
+<%= form_for @user do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+  <br>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+  <br>
+
+  <%= f.email_field :email, placeholder: "john.smith@email.com" %>
+  <br>
+  <%= f.password_field :password, placeholder: "password" %>
+  <br>
+  <%= f.label :realtor, "Are you a realtor?" %>
+  <br>
+  <%= f.radio_button :realtor, true %> Yes
+  <%= f.radio_button :realtor, false %> No
+  <br>
+  <%= f.submit "Sign Up" %>
+
+<% end %>

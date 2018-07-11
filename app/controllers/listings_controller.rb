@@ -1,5 +1,8 @@
 class ListingsController < ApplicationController
+  before_action :require_user
   before_action :fetch_listing, only: [:edit, :show, :update, :destroy]
+  before_action :require_realtor, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     #code
     @listings = Listing.all
@@ -13,6 +16,7 @@ class ListingsController < ApplicationController
   def create
     #code
     @listing = Listing.new(listing_params)
+    @listing.user = current_user
     if @listing.save
       redirect_to @listing
     else
@@ -25,11 +29,17 @@ class ListingsController < ApplicationController
   end
 
   def edit
-    #code
+
   end
 
   def update
     #code
+    @listing.update(listing_params)
+      if @listing.save
+        redirect_to @listing
+      else
+        render :edit
+      end   
   end
 
   def destroy
@@ -43,7 +53,7 @@ class ListingsController < ApplicationController
   end
 
   def listing_params
-    params.require(:listing).permit(:realtor_id, :address_line_1, :address_line_2, :city, :state, :zipcode, :price, :availability, :description)
+    params.require(:listing).permit(:address_line_1, :address_line_2, :city, :state, :zipcode, :price, :availability, :description)
   end
 
 end

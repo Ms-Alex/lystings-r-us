@@ -1,2 +1,0 @@
-class RealtorsController < ApplicationController
-end

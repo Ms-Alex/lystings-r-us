@@ -1,0 +1,10 @@
+<h1><%= @user.user_s %>'s Show Page</h1>
+
+<hr>
+
+Name: <h3><%= @user.user_s %></h3>
+Phone: <h3><%= @user.phone_number %></h3>
+Email: <h3><%= @user.email %></h3>
+<% if @user.realtor? %>
+Firm: <h3><%= @user.firm %></h3>
+<% end %>

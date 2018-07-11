@@ -1,8 +1,28 @@
 <h1><%= @listing.address_s %></h1>
 <h2><%= @listing.city %>, <%= @listing.state %>, <%= @listing.zipcode %></h2>
 <hr>
+<% if current_user.realtor && current_user.id == @listing.user_id %>
+  <%= link_to "Edit", edit_listing_path(@listing) %> |
+  <%= link_to "Delete", listing_path(@listing), method: 'delete' %>
+  <br>
+<% end %>
 
-<%= link_to @listing.realtor.realtor_s, realtor_path(@listing.realtor) %><br>
+
+<h3>Realtor:</h3>
+<%= link_to @listing.user.user_s, user_path(@listing.user) %>
 <h3>Price: </h3>$<%= @listing.price %><br>
 <h3>Description: </h3><%= @listing.description %><br><br>
 <h3>Availability: </h3><%= @listing.availability %>
+
+<h2>Reviews:</h2>
+<% if !current_user.realtor %>
+<%= link_to "Add A Review", new_listing_review_path(@listing) %>
+<br>
+<% end %>
+
+<% @listing.reviews.each do |review| %>
+  <%= review.user.user_s %>  |  <%= link_to "Edit", edit_listing_review_path(review) %> <br>
+  <%= review.title %><br>
+  <%= review.content %><br>
+  <%= review.published_at %><br>
+<% end %>

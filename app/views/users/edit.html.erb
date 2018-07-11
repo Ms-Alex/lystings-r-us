@@ -1,0 +1,22 @@
+<h1>Update your profile information:</h1>
+
+<%= form_for @user do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+  <br>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+  <br>
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number %>
+  <br>
+
+  <!-- CHECK IF THEY'RE A REALTOR -->
+  <% if @user.realtor?  %>
+    <%= f.label :firm %>
+    <%= f.text_field :firm %>
+    <br>
+  <% end %>
+
+  <%= f.submit "Save" %>
+<% end %>
