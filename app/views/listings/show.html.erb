@@ -9,6 +9,9 @@
 
 <h3>Overall Rating of <%= @listing.listing_avg_rating %> / 5.0!</h3>
 
+
+<!-- ADD TO FAVES OR REMOVE  -->
+
 <% if !current_user.realtor %>
 
 <% unless current_user.favorite_listings.exists?(id: @listing.id) %>
@@ -19,8 +22,21 @@
 
 <% end %>
 
+<!-- IMAGES -->
+
+<% if @listing.images.attached? %>
+<table style="width:80%">
+  <tr>
+    <% @listing.images.each do |image| %>
+      <td><%= image_tag image %></td>
+    <% end %>
+  </tr>
+</table>
+<% end %>
 
 
+
+<!-- LISTING INFO -->
 
 <h3>Realtor:</h3>
 <%= link_to @listing.user.user_s, user_path(@listing.user) %>
@@ -28,6 +44,9 @@
 <h3>Price: </h3>$<%= @listing.price %><br>
 <h3>Description: </h3><%= @listing.description %><br><br>
 <h3>Availability: </h3><%= @listing.availability %>
+
+
+<!-- REVIEWS -->
 
 
 <h2>Reviews:</h2>

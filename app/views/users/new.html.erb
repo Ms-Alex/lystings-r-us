@@ -1,26 +1,57 @@
 
+<div class="users-new">
+<center>
 
-<!-- radio_button_tag 'receive_updates', 'no', true -->
-
-<h1>Sign Up!</h1>
+  <h1>Listings R Us</h1>
+<div class="users-new-form">
 
 <%= form_for @user do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
-  <br>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-  <br>
 
-  <%= f.email_field :email, placeholder: "john.smith@email.com" %>
-  <br>
-  <%= f.password_field :password, placeholder: "password" %>
-  <br>
+  <table>
+    <tr>
+      <td align="right"><%= f.label :first_name, "First Name: " %> </td>
+      <td align="left"><%= f.text_field :first_name, placeholder: "First Name" %> </td>
+    </tr>
+
+    <tr>
+      <td align="right"><%= f.label :last_name, "Last Name: " %> </td>
+      <td align="left"><%= f.text_field :last_name, placeholder: "Last Name" %>
+       </td>
+    </tr>
+
+    <tr>
+      <td align="right"><%= f.label :email, "E-mail: " %> </td>
+      <td align="left"><%= f.email_field :email, placeholder: "E-mail address" %>
+       </td>
+    </tr>
+
+    <tr>
+      <td align="right"><%= f.label :password, "Create Password:" %>  </td>
+      <td align="left"><%= f.password_field :password, placeholder: "Password" %>
+      </td>
+    </tr>
+
+  <!-- <i class="fas fa-user"></i>  -->
+  <!-- <br> -->
+  <!-- <i class="fas fa-lock"></i>  -->
+  <!-- <br><br> -->
+
+</table>
+
   <%= f.label :realtor, "Are you a realtor?" %>
   <br>
-  <%= f.radio_button :realtor, true %> Yes 
+  <%= f.radio_button :realtor, true %> Yes
   <%= f.radio_button :realtor, false, checked: true %> No
-  <br>
+  <br><br>
   <%= f.submit "Sign Up" %>
-
 <% end %>
+
+<br>
+
+Already have an account? <%= link_to "Log In", '/login' %>
+
+</div>
+
+</center>
+
+</div>

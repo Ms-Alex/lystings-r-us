@@ -1,9 +1,8 @@
-<h1>Welcome!</h1>
+<h1>Hello, <%= current_user.first_name %>!</h1>
 
-<%= link_to "Profile Page", user_path(@user) %> | <%=  link_to "Messages", conversations_path %>
 
 <hr>
-
+<h2>Available Listings</h2>
 <% Listing.all.each do |listing| %>
   <div>
       <%= link_to listing.address_s, listing_path(listing) %>

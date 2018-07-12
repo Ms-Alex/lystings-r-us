@@ -2,6 +2,7 @@ class Listing < ApplicationRecord
   belongs_to :user, -> { where realtor: true}
   has_many :reviews
   has_many :favorites
+  has_many_attached :images
 
   validates :address_line_1, presence: true
   validates :city, presence: true
@@ -16,7 +17,9 @@ class Listing < ApplicationRecord
   end
 
   def listing_avg_rating
-    (ratings.inject { |sum, rating| sum + rating } / ratings.length).to_f
+    if ratings.count != 0
+      (ratings.inject { |sum, rating| sum + rating } / ratings.length).to_f
+    end
   end
 
   private

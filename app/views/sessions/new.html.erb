@@ -1,13 +1,24 @@
+<div class="sessions-new">
 
-<h1>Log In!</h1>
 
-<%= form_for :session, url: login_path do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
+<center>
+  <h1>Listings R Us</h1>
+
+
+  <%= form_for :session, url: login_path do |f| %>
+    <!-- <%= f.label :email %> -->
+    <i class="fas fa-user"></i> <%= f.email_field :email, placeholder: "E-mail address" %>
+    <br><br>
+    <!-- <%= f.label :password %> -->
+    <i class="fas fa-lock"></i> <%= f.password_field :password, placeholder: "Password" %>
+    <br><br>
+    <%= f.submit "Log In" %>
+
+  <% end %>
   <br>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <br>
-  <%= f.submit "Log In" %>
 
-<% end %>
+  New to us? <%= link_to "Sign Up", '/signup' %>
+
+</center>
+
+</div>

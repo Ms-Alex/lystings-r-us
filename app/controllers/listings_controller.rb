@@ -18,6 +18,7 @@ class ListingsController < ApplicationController
     #code
     @listing = Listing.new(listing_params)
     @listing.user = current_user
+    @listing.images.attach(params[:listing][:images])
     if @listing.save
       redirect_to @listing
     else
@@ -36,6 +37,7 @@ class ListingsController < ApplicationController
   def update
     #code
     @listing.update(listing_params)
+    @listing.images.attach(params[:listing][:images])
       if @listing.save
         redirect_to @listing
       else
