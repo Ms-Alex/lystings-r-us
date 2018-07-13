@@ -1,3 +1,18 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1 {
+font-family: 'Shrikhand', cursive;
+font-size: 48px;
+text-decoration: underline;
+text-shadow: 0 0 3px #FF0000, 0 0 5px #274d7c;
+}
+
+.sessions-new-form {
+  width: 320px;
+    height: 200px;
+    padding: 15px;
+    background-color: #a2c1e8;
+    box-shadow: 10px 10px 5px #274d7c;
+}

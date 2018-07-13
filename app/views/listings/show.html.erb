@@ -1,4 +1,4 @@
-<h1><%= @listing.address_s %></h1>
+<h2><%= @listing.address_s %></h2>
 <h2><%= @listing.city %>, <%= @listing.state %>, <%= @listing.zipcode %></h2>
 <hr>
 <% if current_user.realtor && current_user.id == @listing.user_id %>
@@ -7,7 +7,12 @@
   <br>
 <% end %>
 
+<% if @listing.listing_avg_rating != nil %>
+
 <h3>Overall Rating of <%= @listing.listing_avg_rating %> / 5.0!</h3>
+<br>
+
+<% end %>
 
 
 <!-- ADD TO FAVES OR REMOVE  -->
@@ -24,18 +29,24 @@
 
 <!-- IMAGES -->
 
+
 <% if @listing.images.attached? %>
-<table style="width:80%">
-  <tr>
+
+<div class="tech-slideshow">
+  <!-- <div class="mover-1">
+
+  </div> -->
+  <div class="mover-2">
     <% @listing.images.each do |image| %>
-      <td><%= image_tag image %></td>
+      <%= image_tag image%>
     <% end %>
-  </tr>
-</table>
+  </div>
+
+</div>
+
 <% end %>
 
-
-
+<hr>
 <!-- LISTING INFO -->
 
 <h3>Realtor:</h3>
@@ -60,8 +71,8 @@
   <li>
     Overall: <%= review.review_avg_rating %>/5.0 |
   <%= review.user.first_name %>  wrote: <br>
-  <%= review.title %><br>
-
+  Title: <%= review.title %><br><br>
+  Ratings:
   <table>
     <tr>
       <td>Cleanliness: <%= review.cleanlines %></td>
@@ -75,7 +86,7 @@
   </table>
 
   <br>
-  <%= review.content %><br>
+  Comment: <br> <%= review.content %><br>
   <%= review.published_at %><br>
 </li>
 

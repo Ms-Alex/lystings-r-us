@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
 
-  has_many :listings, -> { where realtor: true }
+  has_many :listings, -> { where realtor: true }, dependent: :delete_all
   has_many :favorites #, -> { where realtor: false }
   has_many :favorite_listings, through: :favorites, source: :favorited, source_type: 'Listing'
 
@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :password, presence: true
+  # validates :password, presence: true
 
   def user_s
     self.first_name + " " + self.last_name

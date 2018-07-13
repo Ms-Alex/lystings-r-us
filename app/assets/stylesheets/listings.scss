@@ -1,3 +1,40 @@
 // Place all the styles related to the Listings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tech-slideshow {
+  height: 600px;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.tech-slideshow > div {
+  height: 200px;
+  width: 2526px;
+  // position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transform: translate3d(0, 0, 0);
+}
+// .tech-slideshow .mover-1 {
+//   animation: moveSlideshow 12s linear infinite;
+// }
+.tech-slideshow .mover-2 {
+  opacity: 1;
+  transition: opacity 0.5s;
+  background-position: 0 -200px;
+  animation: moveSlideshow 25s linear infinite;
+}
+.tech-slideshow:hover .mover-2 {
+  opacity: 1;
+}
+
+@keyframes moveSlideshow {
+  100% {
+    transform: translateX(-66.6666%);
+  }
+}

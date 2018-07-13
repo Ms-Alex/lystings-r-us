@@ -4,7 +4,8 @@
 <center>
   <h1>Listings R Us</h1>
 
-
+<div class="sessions-new-form">
+  
   <%= form_for :session, url: login_path do |f| %>
     <!-- <%= f.label :email %> -->
     <i class="fas fa-user"></i> <%= f.email_field :email, placeholder: "E-mail address" %>
@@ -18,6 +19,8 @@
   <br>
 
   New to us? <%= link_to "Sign Up", '/signup' %>
+
+</div>
 
 </center>
 

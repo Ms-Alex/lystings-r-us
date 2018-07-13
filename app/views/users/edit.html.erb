@@ -1,4 +1,5 @@
-<h1>Update your profile information:</h1>
+<h2>Update your profile information:</h2>
+<hr>
 
 <%= form_for @user do |f| %>
   <%= f.label :first_name %>
@@ -6,6 +7,9 @@
   <br>
   <%= f.label :last_name %>
   <%= f.text_field :last_name %>
+  <br>
+  <%# f.label :email %>
+  <%# f.email_field :email %>
   <br>
   <%= f.label :phone_number %>
   <%= f.text_field :phone_number %>

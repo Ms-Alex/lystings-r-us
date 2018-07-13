@@ -2,23 +2,83 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// .users-new {
-//   background-image: url("https://images.pexels.com/photos/681331/pexels-photo-681331.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-//   -webkit-background-size: cover;
-//   -moz-background-size: cover;
-//   -o-background-size: cover;
-//   background-size: cover;
-// }
 //
 // .users-new-form {
-//   background: pink;
+//   align-items: center;
+//   background: #aaafb5;
+//   padding: 10px, 1px;
 //   -webkit-box-orient: vertical;
 //   -webkit-box-direction: normal;
 //   flex-direction: column;
 //   vertical-align: middle;
 //   align-self: center !important;
 // }
-//
-// .users-new, .sessions-new h1 {
-//   text-decoration: underline;
+/* Left Aligned */
+// .ui[class*="left aligned"].grid > .column,
+// .ui[class*="left aligned"].grid > .row > .column,
+// .ui.grid > [class*="left aligned"].row > .column,
+// .ui.grid > [class*="left aligned"].column.column,
+// .ui.grid > .row > [class*="left aligned"].column.column {
+//   text-align: left;
+//   -ms-flex-item-align: inherit;
+//       align-self: inherit;
 // }
+//
+// .ui[class*="center aligned"].grid > .column,
+// .ui[class*="center aligned"].grid > .row > .column,
+// .ui.grid > [class*="center aligned"].row > .column,
+// .ui.grid > [class*="center aligned"].column.column,
+// .ui.grid > .row > [class*="center aligned"].column.column {
+//   text-align: center;
+//   -ms-flex-item-align: inherit;
+//       align-self: inherit;
+// }
+// .ui[class*="center aligned"].grid {
+//   -webkit-box-pack: center;
+//       -ms-flex-pack: center;
+//           justify-content: center;
+//           background: pink;
+// }
+//
+// /* Right Aligned */
+// .ui[class*="right aligned"].grid > .column,
+// .ui[class*="right aligned"].grid > .row > .column,
+// .ui.grid > [class*="right aligned"].row > .column,
+// .ui.grid > [class*="right aligned"].column.column,
+// .ui.grid > .row > [class*="right aligned"].column.column {
+//   text-align: right;
+//   -ms-flex-item-align: inherit;
+//       align-self: inherit;
+// }
+//
+// /* Justified */
+// .ui.justified.grid > .column,
+// .ui.justified.grid > .row > .column,
+// .ui.grid > .justified.row > .column,
+// .ui.grid > .justified.column.column,
+// .ui.grid > .row > .justified.column.column {
+//   text-align: justify;
+//   -webkit-hyphens: auto;
+//       -ms-hyphens: auto;
+//           hyphens: auto;
+// }
+
+
+h1 {
+font-family: 'Shrikhand', cursive;
+font-size: 48px;
+text-decoration: underline;
+text-shadow: 0 0 3px #FF0000, 0 0 5px #274d7c;
+}
+
+h2 {
+  font-family: 'Paytone One', sans-serif;
+}
+
+.users-new-form {
+  width: 320px;
+    height: 300px;
+    padding: 15px;
+    background-color: #a2c1e8;
+    box-shadow: 10px 10px 5px #274d7c;
+}

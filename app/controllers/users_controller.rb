@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_action :require_user, only: [:index, :edit, :update, :destroy]
-  before_action :fetch_user, only: [:edit, :update, :show, :destroy]
+  before_action :require_user, only: [:index, :edit, :show, :update]
+
+  before_action :fetch_user, only: [:edit, :update, :show]
 
   def index
     @user = current_user
@@ -14,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(new_user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to edit_user_path(@user.id)
+      redirect_to edit_user_path(current_user.id)
     else
       render :new
     end
@@ -29,21 +30,26 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.realtor
-      @user.update(update_realtor_user_params)
+    param = nil
+    if @user.realtor?
+      param = update_realtor_user_params
     else
-      @user.update(update_norm_user_params)
+      param = update_norm_user_params
     end
+
+    @user.update(param)
     if @user.save
-      redirect_to '/users'
+      redirect_to user_path(@user)
     else
       render :edit
     end
   end
 
-  def destroy
-    @user.destroy
-  end
+  # def destroy
+  #   session[:user_id] = nil
+  #   @user.destroy
+  #   redirect_to '/signup'
+  # end
 
 
   private
@@ -57,11 +63,11 @@ class UsersController < ApplicationController
 
   def update_norm_user_params
     #code
-    params.require(:user).permit(:first_name, :last_name, :email, :phone_number)
+    params.require(:user).permit( :first_name, :last_name, :phone_number)
   end
 
   def update_realtor_user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :phone_number, :firm)
+    params.require(:user).permit(:first_name, :last_name, :phone_number, :firm)
   end
 
 

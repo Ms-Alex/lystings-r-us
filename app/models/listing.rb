@@ -19,6 +19,8 @@ class Listing < ApplicationRecord
   def listing_avg_rating
     if ratings.count != 0
       (ratings.inject { |sum, rating| sum + rating } / ratings.length).to_f
+    else
+      nil
     end
   end
 

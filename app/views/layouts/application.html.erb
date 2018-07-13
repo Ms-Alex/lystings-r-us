@@ -6,13 +6,20 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag "users", media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "users" %>
+    <%= stylesheet_link_tag "listings" %>
+    <%= stylesheet_link_tag "sessions" %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" %>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet">
+
   </head>
 
   <body>
@@ -50,7 +57,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/conversations">Messages <span class="sr-only">(current)</span></a></li>
+          <li><a href="/conversations">Messages <span class="sr-only">(current)</span></a></li>
           <li><a href="<%= user_path(current_user) %>">Profile</a></li>
           <!-- <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -92,6 +99,16 @@
 
     <% else %>
       <div>
+        <style type="text/css" scoped>
+        body { background-image: url("https://images.pexels.com/photos/681331/pexels-photo-681331.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+        background-repeat: no-repeat;
+
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+    </style>
 
         <%# link_to "Login", '/login' %>
         <%# link_to "Signup", '/signup' %>

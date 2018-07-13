@@ -16,7 +16,8 @@ Rails.application.routes.draw do
 
   get '/signup', to: 'users#new'
   get '/home', to: 'users#index'
-  resources :users
+
+  resources :users, except: [:destroy]
 
   get '/login', to: 'sessions#new'
 

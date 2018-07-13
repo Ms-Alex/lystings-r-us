@@ -1,35 +1,40 @@
-<h1><%= @user.first_name %>'s Page</h1>
+<h2><%= @user.first_name %>'s Page</h2>
 
 <% if @user.id == current_user.id %>
-  <i class="fas fa-user-edit"></i> <%= link_to "Edit profile", edit_user_path(@user) %>
+  <i class="fas fa-user-edit"></i> <%= link_to "Edit profile", edit_user_path(@user) %> |
+  <i class="fas fa-trash-alt"></i> <%= link_to "Delete profile", user_path(current_user), method: 'delete' %>
 <% end %>
 
 <hr>
 
-Name: <h3><%= @user.user_s %></h3>
-Phone: <h3><%= @user.phone_number %></h3>
-Email: <h3><%= @user.email %></h3>
+<h4>Name: <%= @user.user_s %> </h4>
+<h4>Phone: <%= @user.phone_number %></h4>
+<h4>Email: <%= @user.email %></h4>
 <% if @user.realtor? %>
-Firm: <h3><%= @user.firm %></h3>
+<h4>Firm: <%= @user.firm %></h4>
 <% end %>
 
 
 <% if @user.realtor %>
 <hr>
   <h3>My Listings:</h3>
+  <ul>
   <% @user.realtor_listings.each do |listing| %>
-    <div>
-      <%= link_to listing.address_s, listing %>
-    </div>
+    <li>
+      <h4><%= link_to listing.address_s, listing %></h4>
+    </li>
   <% end %>
+</ul>
 <% end %>
 
 <% if !@user.realtor %>
 <hr>
   <h3>My Favorites:</h3>
+  <ul>
   <% @user.regular_favorites.each do |favorite| %>
-    <div>
-      <%= link_to favorite.favorited.address_s, favorite.favorited %>
-    </div>
+    <li>
+      <h4><%= link_to favorite.favorited.address_s, favorite.favorited %></h4>
+    </li>
   <% end %>
+</ul>
 <% end %>

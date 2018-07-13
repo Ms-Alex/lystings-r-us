@@ -1,7 +1,7 @@
 <%= link_to "All Messages", conversations_path %>
 <br>
 
-<h1><%= @conversation.subject %></h1>
+<h2><%= @conversation.subject %></h2>
 
 <% @conversation.receipts_for(current_user).each do |receipt| %>
     <div>
