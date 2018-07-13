@@ -1,8 +1,12 @@
-<h2><%= @user.first_name %>'s Page</h2>
+<h2><%= @user.first_name %>'s Profile</h2>
 
 <% if @user.id == current_user.id %>
-  <i class="fas fa-user-edit"></i> <%= link_to "Edit profile", edit_user_path(@user) %> |
-  <i class="fas fa-trash-alt"></i> <%= link_to "Delete profile", user_path(current_user), method: 'delete' %>
+   <i class="fas fa-user-edit"></i> <%= link_to "Edit profile", edit_user_path(@user) %>
+
+   <% if current_user.realtor %>
+     | <i class="fas fa-plus-circle"></i> <%= link_to "Create A New Listing", new_listing_path %>
+   <% end %>
+
 <% end %>
 
 <hr>
@@ -18,6 +22,7 @@
 <% if @user.realtor %>
 <hr>
   <h3>My Listings:</h3>
+
   <ul>
   <% @user.realtor_listings.each do |listing| %>
     <li>

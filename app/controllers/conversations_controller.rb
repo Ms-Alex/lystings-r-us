@@ -19,4 +19,6 @@ class ConversationsController < ApplicationController
     redirect_to conversation_path(receipt.conversation)
   end
 
+
+
 end

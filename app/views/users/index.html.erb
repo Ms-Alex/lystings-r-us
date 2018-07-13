@@ -1,21 +1,22 @@
 <h2>Hello, <%= current_user.first_name %>!</h2>
 
-<% if current_user.realtor %>
-  <%= link_to "Create A New Listing", new_listing_path %>
-<% end %>
 
 <hr>
 <h2 align="center">Available Listings</h2>
 
-<% Listing.all.each do |listing| %>
   <div>
     <table width="80%" border="1px" align="center">
+      <tr>
+        <td align="center">Listing Address</td>
+        <td align="center">Listing Preview</td>
+      </tr>
+      <% Listing.all.each do |listing| %>
       <tr>
         <td align="center" width="30%"><%= link_to listing.address_s, listing_path(listing) %> <br> </td>
         <% if listing.images.attached? %>
         <td align="center", width="30%"><%= image_tag listing.images[0], size: "100x100" %></td>
         <% end %>
       </tr>
+      <% end %>
     </table>
   </div>
-<% end %>

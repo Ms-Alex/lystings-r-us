@@ -20,9 +20,9 @@
 <% if !current_user.realtor %>
 
 <% unless current_user.favorite_listings.exists?(id: @listing.id) %>
-<%= button_to 'Add to favorites', favorite_listings_path(listing_id: @listing), method: :post %>
+<%= button_to '🖤 Add to favorites', favorite_listings_path(listing_id: @listing), method: :post %>
 <% else %>
-<%= button_to 'Remove from favorites', favorite_listing_path(@listing), method: :delete %>
+<%= button_to '🗑 Remove from favorites', favorite_listing_path(@listing), method: :delete %>
 <% end %>
 
 <% end %>
@@ -70,7 +70,7 @@
 <% @listing.reviews.each do |review| %>
   <li>
     Overall: <%= review.review_avg_rating %>/5.0 |
-  <%= review.user.first_name %>  wrote: <br>
+  <%= link_to review.user.first_name, review.user %>  wrote: <br>
   Title: <%= review.title %><br><br>
   Ratings:
   <table>

@@ -1,11 +1,12 @@
-<h2>All Conversations</h2>
+<h2>All Messages</h2>
 <i class="fas fa-envelope"></i> <%= link_to "Create a new Message", new_conversation_path %>
 <hr>
 
+<h3>Inbox: </h3>
 <ul>
   <% @conversations.each do |conversation| %>
       <li>
-          <%= link_to conversation.subject, conversation_path(conversation) %>
+          <h3><%= link_to conversation.subject, conversation_path(conversation) %></h3>
       </li>
 
   <% end %>
