@@ -69,6 +69,7 @@ Alexandra Hernandez – ms.hernandeza1@gmail.com
 Alan Golman - alan.golman@flatironschool.com
 
 [https://github.com/Ms-Alex/github-link]
+
 [https://github.com/alangolm/github-link]
 
 ## Contributing
