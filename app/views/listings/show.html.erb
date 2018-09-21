@@ -1,3 +1,5 @@
+<div class="container">
+
 <h2><%= @listing.address_s %></h2>
 <h2><%= @listing.city %>, <%= @listing.state %>, <%= @listing.zipcode %></h2>
 <hr>
@@ -24,6 +26,8 @@
 <% else %>
 <%= button_to '🗑 Remove from favorites', favorite_listing_path(@listing), method: :delete %>
 <% end %>
+
+<br>
 
 <% end %>
 
@@ -93,3 +97,5 @@
 <% end %>
 
 </ul>
+
+</div>
