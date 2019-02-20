@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :favorite_listings, only: [:create, :destroy]
 
-  # get '/' => 'users#index'
+  get '/' => 'users#index'
 
   get '/signup', to: 'users#new'
   get '/home', to: 'users#index'
