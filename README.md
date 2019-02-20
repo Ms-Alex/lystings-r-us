@@ -55,7 +55,9 @@ rails db:create
 rails db:migrate
 rails s
 ```
-Open a new tab, and go to (`localhost:3000/signup`) or (`localhost:3000/signup`)
+Open a new tab, and go to `http://localhost:$PORT`. 
+
+** $PORT being 3000 (the default from `rails s`), or a specified number if you added the option -p with a port number (ie `rails s -p 3030`).
 
 ## Release History
 
